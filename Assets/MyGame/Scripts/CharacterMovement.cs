@@ -3,6 +3,7 @@ using DG.Tweening;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
+[RequireComponent(typeof(InputManager))]
 public class CharacterMovement : MonoBehaviour {
     [Header("References")]
     [SerializeField] private Transform cam;
@@ -11,7 +12,7 @@ public class CharacterMovement : MonoBehaviour {
     [SerializeField] private float walkSpeed = 6f, strafeSpeed = 4f, sprintSpeed = 8f, strafeSprintSpeed = 6f;
 
     private Vector3 velocity;
-    private bool sprintPressed, isBackward = false;
+    private bool sprintPressed;
     private Rigidbody rb;
 
     Vector2 movementInput;
@@ -24,32 +25,8 @@ public class CharacterMovement : MonoBehaviour {
     private void Update() {
         float _walkSpeed = sprintPressed ? sprintSpeed : walkSpeed;
         float _strafeSpeed = sprintPressed ? strafeSprintSpeed : strafeSpeed;
-
-        if (movementInput.y < 0f)
-            isBackward = true;
-        if (movementInput.y > 0f)
-            isBackward = false;
             
-        if (!isBackward)
-        {
-            velocity = (transform.right * movementInput.x * _strafeSpeed) + (transform.forward * movementInput.y * _walkSpeed);
-            handleRotation(0f);
-        }
-        else
-        {
-            velocity = (transform.right * -movementInput.x * _strafeSpeed) + (transform.forward * -movementInput.y * _walkSpeed);
-
-            handleRotation(180f);
-        }
-
-    }
-
-    private void handleRotation(float angle)
-    {
-        Vector3 currentRotation = transform.eulerAngles;
-        currentRotation.y = cam.eulerAngles.y + angle; 
-        print("currentRotation" + currentRotation);
-        transform.DORotate(currentRotation, 0f);
+        velocity = (transform.right * movementInput.x * _strafeSpeed) + (transform.forward * movementInput.y * _walkSpeed);
     }
 
     private void FixedUpdate() {

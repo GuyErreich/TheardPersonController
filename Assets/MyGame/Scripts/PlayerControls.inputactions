@@ -11,7 +11,8 @@
                     "id": "2e41a801-da85-4dec-aecc-b74d0d0e23ae",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Jump",
@@ -19,7 +20,8 @@
                     "id": "0873aef7-67b9-4570-bef7-4152cf448b7b",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Sprint",
@@ -27,7 +29,8 @@
                     "id": "70061bf3-30ac-4291-a431-7cad6d24123d",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "MouseX",
@@ -35,7 +38,8 @@
                     "id": "dad19d8e-2947-4082-8fba-86f63c425d92",
                     "expectedControlType": "Axis",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "MouseY",
@@ -43,7 +47,8 @@
                     "id": "5709d35c-84a6-4659-8ef3-1d5459cdcf53",
                     "expectedControlType": "Axis",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [

@@ -4,6 +4,8 @@ public class InputManager : MonoBehaviour {
     
     [SerializeField] CharacterMovement movement;
     // [SerializeField] CameraController mouseLook;
+    [SerializeField] AnimationController anim;
+
 
     PlayerControls controls;
     PlayerControls.GroundMovementActions groundMovement;
@@ -26,6 +28,7 @@ public class InputManager : MonoBehaviour {
     private void Update() {
         movement.ReceiveInput(movementInput, sprintPressed);
         // mouseLook.ReceiveInput(mouseInput)
+        anim.ReceiveInput(movementInput, sprintPressed);
     }
 
     private void OnEnable() {
