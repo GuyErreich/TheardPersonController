@@ -2,37 +2,38 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour {
     
-    [SerializeField] CharacterMovement movement;
+    [SerializeField] private CharacterMovement movement;
+    [SerializeField] private float smoothInputSpeed;
     // [SerializeField] CameraController mouseLook;
 
-    PlayerControls controls;
-    PlayerControls.GroundMovementActions groundMovement;
+    private PlayerControls controls;
+    private PlayerControls.MovementActions movementInput;
 
-    Vector2 movementInput;
+    private Vector2 movementInputValue, currentMovementInputValue, smoothInputVelocity;
+
+
     Vector2 mouseInput;
 
-    bool sprintPressed;
-
     private void Awake() {
-        controls = new PlayerControls();
-        groundMovement = controls.GroundMovement;
+        this.controls = new PlayerControls();
+        this.movementInput = this.controls.Movement;
         
-        groundMovement.Movement.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
-        groundMovement.Sprint.performed += ctx => sprintPressed = ctx.ReadValueAsButton();
-        groundMovement.MouseX.performed += ctx => mouseInput.x = ctx.ReadValue<float>();
-        groundMovement.MouseY.performed += ctx => mouseInput.y = ctx.ReadValue<float>();
+        this.movementInput.Movement.performed += ctx => this.movementInputValue = ctx.ReadValue<Vector2>();
+        // this.movementInput.MouseLook.performed += ctx => this.mouseInput = ctx.ReadValue<Vector2>();
     }
 
     private void Update() {
-        movement.ReceiveInput(movementInput, sprintPressed);
+        this.currentMovementInputValue = Vector2.SmoothDamp(this.currentMovementInputValue, this.movementInputValue, 
+                                                        ref this.smoothInputVelocity, this.smoothInputSpeed);
+        this.movement.ReceiveInput(currentMovementInputValue);
         // mouseLook.ReceiveInput(mouseInput)
     }
 
     private void OnEnable() {
-        controls.Enable();
+        this.controls.Enable();
     }
 
     private void OnDestroy() {
-        controls.Disable();
+        this.controls.Disable();
     }
 }
