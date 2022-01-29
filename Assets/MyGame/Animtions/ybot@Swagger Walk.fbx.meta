@@ -1,14 +1,11 @@
 fileFormatVersion: 2
-guid: 3c9aaeae72a2f16468fce6402c47bb1b
+guid: cc455a01d6a05ea4da89fbddd7a39dee
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Idle (1)
-  - first:
-      74: -3100369314251171874
-    second: Idle
+    second: Swagger Walk
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -38,13 +35,13 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Idle
+      name: Swagger Walk
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 600
+      lastFrame: 167
       wrapMode: 0
-      orientationOffsetY: 0
+      orientationOffsetY: -0.03
       level: 0
       cycleOffset: 0
       loop: 0
@@ -53,7 +50,7 @@ ModelImporter:
       loopBlend: 1
       loopBlendOrientation: 1
       loopBlendPositionY: 1
-      loopBlendPositionXZ: 1
+      loopBlendPositionXZ: 0
       keepOriginalOrientation: 1
       keepOriginalPositionY: 0
       keepOriginalPositionXZ: 1
