@@ -23,10 +23,22 @@ public class InputManager : MonoBehaviour {
     }
 
     private void Update() {
-        this.currentMovementInputValue = Vector2.SmoothDamp(this.currentMovementInputValue, this.movementInputValue, 
-                                                        ref this.smoothInputVelocity, this.smoothInputSpeed);
+        this.smoothMovement();
+        
         this.movement.ReceiveInput(currentMovementInputValue);
         // mouseLook.ReceiveInput(mouseInput)
+    }
+
+    private void smoothMovement()
+    {
+        bool forwardPressed = this.movementInputValue.y > 0 ? true : false;
+        this.currentMovementInputValue = Vector2.SmoothDamp(this.currentMovementInputValue, this.movementInputValue, 
+                                                        ref this.smoothInputVelocity, this.smoothInputSpeed);
+
+        if (forwardPressed && this.currentMovementInputValue.y > 0.95f) 
+            this.currentMovementInputValue.y = 1;
+        if (!forwardPressed && this.currentMovementInputValue.y < 0.05f) 
+            this.currentMovementInputValue.y = 0; 
     }
 
     private void OnEnable() {
