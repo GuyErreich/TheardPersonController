@@ -33,19 +33,10 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MouseX",
+                    "name": "Look",
                     "type": "PassThrough",
                     "id": "dad19d8e-2947-4082-8fba-86f63c425d92",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "MouseY",
-                    "type": "PassThrough",
-                    "id": "5709d35c-84a6-4659-8ef3-1d5459cdcf53",
-                    "expectedControlType": "Axis",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -55,7 +46,7 @@
                 {
                     "name": "2D Vector",
                     "id": "00bf04b5-b7b9-41c5-a953-154d016807c0",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=1)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -132,22 +123,11 @@
                 {
                     "name": "",
                     "id": "5f5197f8-8db3-45be-90f5-68f70b7ba287",
-                    "path": "<Mouse>/delta/x",
+                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MouseX",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2f604c6d-1030-419b-b6d9-9b6bb9862aa7",
-                    "path": "<Mouse>/delta/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MouseY",
+                    "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

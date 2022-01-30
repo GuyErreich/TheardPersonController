@@ -21,8 +21,7 @@ public class InputManager : MonoBehaviour {
         
         groundMovement.Movement.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
         groundMovement.Sprint.performed += ctx => sprintPressed = ctx.ReadValueAsButton();
-        groundMovement.MouseX.performed += ctx => mouseInput.x = ctx.ReadValue<float>();
-        groundMovement.MouseY.performed += ctx => mouseInput.y = ctx.ReadValue<float>();
+        groundMovement.Look.performed += ctx => mouseInput = ctx.ReadValue<Vector2>();
     }
 
     private void Update() {
