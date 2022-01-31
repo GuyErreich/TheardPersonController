@@ -30,6 +30,8 @@ public class InputManager : MonoBehaviour {
         anim.ReceiveInput(movementInput, sprintPressed);
     }
 
+    //TODO: Create a movement input smooth function
+
     private void OnEnable() {
         controls.Enable();
     }
